@@ -59,7 +59,7 @@ yang sah dari Precision Finance.
 =========================================
 `;
         const element = document.createElement("a")
-        const file = new Blob([textContent], {type: 'text/plain'})
+        const file = new Blob([textContent], { type: 'text/plain' })
         element.href = URL.createObjectURL(file)
         element.download = `Receipt-${trx.reference_code}.txt`
         document.body.appendChild(element)
@@ -71,8 +71,8 @@ yang sah dari Precision Finance.
         <div className="flex flex-col min-h-full pb-8 animate-slide-up">
             {/* Navbar */}
             <nav className="px-6 py-4 flex items-center gap-4 border-b border-dark-border/40 bg-dark-bg/85 backdrop-blur-md sticky top-0 z-30">
-                <Link 
-                    to="/transactions" 
+                <Link
+                    to="/transactions"
                     className="p-1.5 rounded-lg bg-dark-surface border border-dark-border text-dark-text-muted hover:text-white transition-all active:scale-95"
                 >
                     <ChevronLeft size={18} />
@@ -94,7 +94,7 @@ yang sah dari Precision Finance.
                 ) : (
                     <div className="space-y-6">
                         {transactions.map((trx) => (
-                            <div key={trx.id} className="relative bg-dark-card border border-dark-border rounded-2xl p-6 shadow-xl space-y-6 overflow-hidden">
+                            <div key={trx.id} className="relative bg-dark-card rounded-2xl p-6 shadow-xl space-y-6 overflow-hidden">
                                 {/* Decorative circle cuts simulating physical receipt tickets */}
                                 <div className="absolute -left-3 top-1/3 w-6 h-6 rounded-full bg-[#040508] border-r border-dark-border"></div>
                                 <div className="absolute -right-3 top-1/3 w-6 h-6 rounded-full bg-[#040508] border-l border-dark-border"></div>
@@ -121,21 +121,21 @@ yang sah dari Precision Finance.
                                 {/* Transaction Details Table */}
                                 <div className="space-y-4 pt-2">
                                     <h4 className="text-[10px] font-bold text-dark-text-muted uppercase tracking-wider border-b border-dark-border/40 pb-1.5">Informasi Pembayaran</h4>
-                                    
+
                                     <div className="space-y-2.5">
                                         <Row label="Kategori" value={getTrxTypeLabel(trx.type)} />
                                         <Row label="Metode Pembayaran" value="Precision Wallet" />
-                                        <Row 
-                                            label="Waktu Transaksi" 
+                                        <Row
+                                            label="Waktu Transaksi"
                                             value={new Date(trx.created_at).toLocaleString('id-ID', {
                                                 day: 'numeric', month: 'short', year: 'numeric',
                                                 hour: '2-digit', minute: '2-digit'
-                                            })} 
+                                            })}
                                         />
                                         <Row label="Saldo Sebelum" value={formatRupiah(trx.balance_before)} />
                                         <Row label="Saldo Sesudah" value={formatRupiah(trx.balance_after)} />
                                         {trx.description && <Row label="Deskripsi" value={trx.description} />}
-                                        
+
                                         {trx.related_wallet && (
                                             <div className="border-t border-dark-border/30 pt-2.5 mt-2.5">
                                                 <Row label="Pihak Penerima/Pengirim" value={trx.related_wallet.user?.name ?? '-'} />

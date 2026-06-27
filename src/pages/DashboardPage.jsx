@@ -3,8 +3,8 @@ import { useNavigate, Link } from 'react-router-dom'
 import useAuthStore from '../store/authStore'
 import { getWallet, topUp, transfer } from '../api/wallet'
 import { getTransactions } from '../api/transactions'
-import { 
-    Eye, EyeOff, Plus, Send, LogOut, ArrowUpRight, ArrowDownLeft, 
+import {
+    Eye, EyeOff, Plus, Send, LogOut, ArrowUpRight, ArrowDownLeft,
     ChevronRight, TrendingUp, History, User, X, CheckCircle2, AlertCircle
 } from 'lucide-react'
 
@@ -127,13 +127,13 @@ export default function DashboardPage() {
                     </div>
                     <div>
                         <p className="text-[10px] text-dark-text-muted">Halo, Selamat Datang</p>
-                        <h2 className="text-xs font-semibold text-white -mt-0.5">{user?.name}</h2>
+                        <h2 className="text-xs font-semibold text-white -mt-0.5">{user}</h2>
                     </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                    <Link 
-                        to="/transactions" 
+                    <Link
+                        to="/transactions"
                         className="p-2 rounded-lg bg-dark-surface hover:bg-dark-surface/80 border border-dark-border text-dark-text-muted hover:text-white transition-all"
                         title="Riwayat"
                     >
@@ -164,7 +164,7 @@ export default function DashboardPage() {
                                 </h1>
                             )}
                         </div>
-                        <button 
+                        <button
                             onClick={toggleBalance}
                             className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-all text-white cursor-pointer"
                         >
@@ -270,7 +270,7 @@ export default function DashboardPage() {
                     <div className="glass-card rounded-t-3xl border-t border-dark-border p-6 space-y-4 animate-slide-up">
                         <div className="flex justify-between items-center">
                             <h3 className="text-sm font-bold text-white uppercase tracking-wider">Top Up Balance</h3>
-                            <button 
+                            <button
                                 onClick={() => { setActiveModal(null); setTopUpError(null); setTopUpSuccess(null); }}
                                 className="p-1 rounded-lg bg-dark-surface border border-dark-border text-dark-text-muted hover:text-white cursor-pointer"
                             >
@@ -337,7 +337,7 @@ export default function DashboardPage() {
                     <div className="glass-card rounded-t-3xl border-t border-dark-border p-6 space-y-4 animate-slide-up">
                         <div className="flex justify-between items-center">
                             <h3 className="text-sm font-bold text-white uppercase tracking-wider">Send Money</h3>
-                            <button 
+                            <button
                                 onClick={() => { setActiveModal(null); setTransferError(null); setTransferSuccess(null); }}
                                 className="p-1 rounded-lg bg-dark-surface border border-dark-border text-dark-text-muted hover:text-white cursor-pointer"
                             >

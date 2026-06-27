@@ -6,16 +6,16 @@ const useAuthStore = create((set) => ({
     token: localStorage.getItem('token') || null,
     isAuthenticated: !!localStorage.getItem('token'),
 
-    register: async (data) => {
-        const res = await register(data)
-        const { user, token } = res.data
+    login: async (data) => {
+        const res = await login(data)
+        const { user, token } = res.data.data  // ← res.data.data karena keduanya di dalam data
         localStorage.setItem('token', token)
         set({ user, token, isAuthenticated: true })
     },
 
-    login: async (data) => {
-        const res = await login(data)
-        const { user, token } = res.data
+    register: async (data) => {
+        const res = await register(data)
+        const { user, token } = res.data.data
         localStorage.setItem('token', token)
         set({ user, token, isAuthenticated: true })
     },
